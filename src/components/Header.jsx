@@ -1,6 +1,7 @@
+import Logo from '../assets/logo.svg'
 import IconCart from '../assets/icon-cart.svg'
 import IconMenu from '../assets/icon-menu.svg'
-import Logo from '../assets/logo.svg'
+import Avatar from '../assets/image-avatar.png'
 
 export default function Header() {
   return (
@@ -18,12 +19,22 @@ export default function Header() {
             <img src={Logo} alt="icon cart"/>
           </span>
           <div className="hidden lg:ml-6 lg:block">
-            <div className="flex space-x-4 text-md text-gray-500 font-medium">
-              <a href="#" className="hover:text-gray-800 px-3 py-2">Collections</a>
-              <a href="#" className="hover:text-gray-800 px-3 py-2">Men</a>
-              <a href="#" className="hover:text-gray-800 px-3 py-2">Women</a>
-              <a href="#" className="hover:text-gray-800 px-3 py-2">About</a>
-              <a href="#" className="hover:text-gray-800 px-3 py-2">Contact</a>
+            <div className="flex space-x-8 text-md text-gray-500 font-medium px-3">
+              <a href="#" className="relative hover:text-gray-800 group">
+                Collections <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a href="#" className="relative hover:text-gray-800 group">
+                Men <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a href="#" className="relative hover:text-gray-800 group">
+                Women <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a href="#" className="relative hover:text-gray-800 group">
+                About <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a href="#" className="relative hover:text-gray-800 group">
+                Contact <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
             </div>
           </div>
         </div>
@@ -34,8 +45,8 @@ export default function Header() {
           </button>
 
           <div className="relative ml-3">
-            <button className="relative flex rounded-full hover:ring-4 hover:ring-orange-400">
-              <img className="h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile picture" />
+            <button className="relative flex rounded-full hover:ring-2 hover:ring-orange-400">
+              <img className="h-12 rounded-full" src={Avatar} alt="profile picture" />
             </button>
           </div>
         </div>
