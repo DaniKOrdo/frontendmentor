@@ -6,7 +6,7 @@ import Avatar from '../assets/image-avatar.png'
 export default function Header() {
   return (
     <nav className="mx-auto px-2 pb-8 lg:mx-6 border-b-[1px]">
-      <div className="relative flex h-16 items-center justify-between">
+      <div className="relative flex items-center justify-between h-16">
 
         <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
           <button className="relative inline-flex items-center justify-center text-gray-400 hover:text-gray-500">
@@ -15,11 +15,11 @@ export default function Header() {
         </div>
 
         <div className="flex items-center justify-center lg:items-stretch lg:justify-start">
-          <span className="flex items-center text-4xl font-bold ml-8 lg:ml-0">
+          <span className="flex items-center ml-8 text-4xl font-bold lg:ml-0">
             <img src={Logo} alt="icon cart"/>
           </span>
           <div className="hidden lg:ml-6 lg:block">
-            <div className="flex space-x-8 text-md text-gray-500 font-medium px-3">
+            <div className="flex px-3 space-x-8 font-medium text-gray-500 text-md">
               <a href="#" className="relative hover:text-gray-800 group">
                 Collections <span className="absolute w-full h-1 bg-orange-500 top-[72px] left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
               </a>
