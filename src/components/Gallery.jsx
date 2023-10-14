@@ -15,15 +15,15 @@ export default function Gallery() {
   };
 
   return (
-    <aside className='flex flex-col gap-8 p-20'>
+    <aside className='flex flex-col gap-8 px-16 py-20'>
       <img className='rounded-2xl' src={`${currentImage}.jpg`} alt="Sneakers Image" />
-      <div className='flex justify-between'>
+      <div className='flex justify-between gap-4'>
         {thumbnails.map(({id, src, alt}) => (
           <img
             key={id}
             src={src}
             alt={alt}
-            className={`h-24 rounded-xl ${
+            className={`w-1/5 rounded-xl cursor-pointer ${
               currentImage === id
                 ? 'opacity-40 ring-2 ring-orange-400'
                 : 'hover:opacity-60'
