@@ -24,22 +24,25 @@ export default function InfoProduct() {
   }
 
   return (
-    <article className="flex flex-col justify-center px-16 py-20">
-      <span className="py-5 font-bold text-orange-400">SNEAKER COMPANY</span>
+    <article className="flex flex-col justify-center p-8 md:px-16 md:py-20">
+      <span className="py-5 font-bold tracking-widest text-orange-400">SNEAKER COMPANY</span>
       <h1 className="text-5xl font-bold">Fall Limited Edition Sneakers</h1>
       <p className="py-8 text-gray-500">
         These low-profile sneakers are you perfect casual wear
         companion. Featuring a durable rubber outer sole, they&apos;ll
         withstand everything the weather can offer.
       </p>
-      <div className="flex items-center gap-5 pb-3 text-3xl font-bold">
-        <span>{USDollarPrice(125)}</span>
-        <span className="py-[0.1rem] px-[0.6rem] text-base text-orange-400 bg-orange-100 rounded-md">50%</span>
-      </div>
-      <span className="font-bold text-gray-400 line-through">{USDollarPrice(250)}</span>
 
-      <footer className="flex items-center gap-4 py-10">
-        <div className="flex items-center h-full bg-gray-100 rounded-md">
+      <div className='flex items-center justify-between md:items-start md:flex-col'>
+        <div className="flex items-center gap-5 text-3xl font-bold md:pb-1">
+          <span>{USDollarPrice(125)}</span>
+          <span className="py-[0.1rem] px-[0.6rem] text-base text-orange-400 bg-orange-100 rounded-md">50%</span>
+        </div>
+        <span className="text-xl font-bold text-gray-400 line-through md:text-base">{USDollarPrice(250)}</span>
+      </div>
+
+      <footer className="flex flex-col items-center gap-4 py-10 md:flex-row">
+        <div className="flex items-center justify-between w-full px-4 bg-gray-100 rounded-md md:px-0 md:justify-center h-14 md:h-full md:w-auto">
           <button className="flex items-center justify-center w-12 h-full text-white rounded-md" onClick={() => handleQuantity(-1)}><img src={IconMinus} alt="icon minus" /></button>
           <span className="flex items-center justify-center w-12 font-bold ">{quantity}</span>
           <button className="flex items-center justify-center w-12 h-full text-white rounded-md" onClick={() => handleQuantity(1)}><img src={IconPlus} alt="icon plus" /></button>

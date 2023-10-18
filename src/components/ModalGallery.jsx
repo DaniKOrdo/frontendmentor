@@ -6,12 +6,14 @@ export default function ModalGallery({ currentImage, images, closeModal, handleT
 
   return (
     <div className='fixed inset-0 z-50 flex flex-col items-center justify-center w-screen gap-8 bg-black bg-opacity-75'>
-      <button
-        className='w-[600px] text-blue-500 cursor-pointer'
-        onClick={closeModal}
-      >
-        <img src="src/assets/icon-close.svg" alt="Close Icon" className="w-6 ml-auto mr-6" />
-      </button>
+      <div className="w-[550px] flex justify-end">
+        <button
+          className='text-blue-500 cursor-pointer '
+          onClick={closeModal}
+        >
+          <img src="src/assets/icon-close.svg" alt="Close Icon" className="w-6 ml-auto " />
+        </button>
+      </div>
 
       <div className="relative flex px-12">
         <button
