@@ -1,6 +1,6 @@
 import { USDollarPrice } from '../utils/format'
 
-import IconDelete from '../assets/icon-delete.svg'
+import { IconDelete } from '../utils/icons'
 import { useCart } from '../hooks/useCart'
 
 export default function Cart({ showCart }) {
@@ -27,8 +27,8 @@ export default function Cart({ showCart }) {
                       </span>
                     </span>
                   </div>
-                  <button className="w-4 ml-1 md:ml-8" >
-                    <img src={IconDelete} alt="Icon Delete" onClick={() => removeFromCart(item)} />
+                  <button className="w-4 ml-1 text-gray-400 hover:text-gray-600 md:ml-8" onClick={() => removeFromCart(item)} >
+                    <IconDelete />
                   </button>
                 </div>
 
