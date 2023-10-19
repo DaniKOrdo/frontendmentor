@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import ModalGallery from './ModalGallery';
+import { images, getPreviousImage, getNextImage } from '../utils/getImages';
 
-const images = [
-  { id: 'image-product-1', alt: 'Sneakers Image Front', src: 'image-product-1.jpg' },
-  { id: 'image-product-2', alt: 'Sneakers Image Back', src: 'image-product-2.jpg' },
-  { id: 'image-product-3', alt: 'Sneakers Image Right Side', src: 'image-product-3.jpg' },
-  { id: 'image-product-4', alt: 'Sneakers Image Left Side', src: 'image-product-4.jpg' },
-];
+import { IconNext } from '../utils/icons';
 
 export default function Gallery() {
   const [currentImage, setCurrentImage] = useState('image-product-1');
@@ -24,38 +20,25 @@ export default function Gallery() {
     setIsModalOpen(false);
   };
 
-  const getPreviousImage = () => {
-    const currentIndex = images.findIndex(image => image.id === currentImage);
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    return images[previousIndex].id;
-  };
-
-  const getNextImage = () => {
-    const currentIndex = images.findIndex(image => image.id === currentImage);
-    const nextIndex = (currentIndex + 1) % images.length;
-    return images[nextIndex].id;
-  };
-
   return (
     <aside className='flex flex-col gap-8 md:px-16 md:py-20'>
       <div className='relative md:hidden'>
         <button
-          className="absolute flex items-center justify-center w-14 h-14 transform rotate-180 bg-white rounded-full left-4 top-[45%]"
-          onClick={() => handleThumbnailClick(getPreviousImage())}
+          className="absolute flex items-center justify-center w-14 h-14 transform rotate-180 bg-white rounded-full left-4 top-[45%] text-white"
+          onClick={() => handleThumbnailClick(getPreviousImage({ currentImage }))}
         >
-          <img src="src/assets/icon-next.svg" alt='Back Icon' />
+          <IconNext />
         </button>
         <img
-          className=''
+          className='pointer-events-none select-none'
           src={`${currentImage}.jpg`}
           alt="Sneakers Image"
         />
-
         <button
-          className="absolute flex items-center justify-center w-14 h-14 bg-white rounded-full right-4 top-[45%]"
-          onClick={() => handleThumbnailClick(getNextImage())}
+          className="absolute flex items-center justify-center w-14 h-14 bg-white rounded-full right-4 top-[45%] text-white"
+          onClick={() => handleThumbnailClick(getNextImage({ currentImage }))}
         >
-          <img src="src/assets/icon-next.svg" alt='Next Icon' />
+          <IconNext />
         </button>
       </div>
 
@@ -71,7 +54,7 @@ export default function Gallery() {
             <img
               src={src}
               alt={alt}
-              className={` rounded-xl cursor-pointer ${currentImage === id
+              className={`select-none rounded-xl cursor-pointer ${currentImage === id
                 ? 'opacity-50 '
                 : 'hover:opacity-60'
                 }`}
