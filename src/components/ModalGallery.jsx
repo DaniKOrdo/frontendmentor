@@ -1,33 +1,31 @@
+import { getPreviousImage, getNextImage } from '../utils/getImages';
+import { IconClose, IconNext } from '../utils/icons';
+
 export default function ModalGallery({ currentImage, images, closeModal, handleThumbnailClick }) {
-  const currentIndex = images.findIndex((image) => image.id === currentImage);
-
-  const prevImage = currentIndex > 0 ? images[currentIndex - 1] : images[images.length - 1];
-  const nextImage = currentIndex < images.length - 1 ? images[currentIndex + 1] : images[0];
-
   return (
     <div className='fixed inset-0 z-50 flex flex-col items-center justify-center w-screen gap-8 bg-black bg-opacity-75'>
       <div className="w-[550px] flex justify-end">
         <button
-          className='text-blue-500 cursor-pointer '
+          className='w-6 h-6 ml-auto text-white cursor-pointer'
           onClick={closeModal}
         >
-          <img src="src/assets/icon-close.svg" alt="Close Icon" className="w-6 ml-auto " />
+          <IconClose />
         </button>
       </div>
 
       <div className="relative flex px-12">
         <button
-          className="absolute flex items-center justify-center w-16 h-16 transform rotate-180 bg-white rounded-full left-4 top-[45%]"
-          onClick={() => handleThumbnailClick(prevImage.id)}
+          className="absolute flex items-center justify-center w-16 h-16 transform rotate-180 bg-white rounded-full left-4 top-[45%] text-white"
+          onClick={() => handleThumbnailClick(getPreviousImage({ images, currentImage }))}
         >
-          <img src="src/assets/icon-next.svg" alt='Back Icon' />
+          <IconNext />
         </button>
         <img src={`${currentImage}.jpg`} alt='Sneakers Image' className="w-[550px] rounded-2xl" />
         <button
-          className="absolute flex items-center justify-center w-16 h-16 bg-white rounded-full right-4 top-[45%]"
-          onClick={() => handleThumbnailClick(nextImage.id)}
+          className="absolute flex items-center justify-center w-16 h-16 bg-white rounded-full right-4 top-[45%] text-white"
+          onClick={() => handleThumbnailClick(getNextImage({ images, currentImage }))}
         >
-          <img src="src/assets/icon-next.svg" alt='Next Icon' />
+          <IconNext />
         </button>
       </div>
 
