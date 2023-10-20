@@ -20,8 +20,8 @@ export default function Header() {
         </div>
 
         <aside className={`fixed inset-0 z-50 w-screen h-screen bg-black bg-opacity-75 transition-transform ${showMenu ? 'transform translate-x-0' : 'transform -translate-x-full bg-opacity-0'}`}>
-          <main className="flex flex-col items-start h-screen gap-6 p-8 bg-white w-80">
-            <button className="mb-8 text-gray-500 hover:text-gray-700" onClick={() => setShowMenu(!showMenu)}>
+          <div className="flex flex-col items-start h-screen gap-6 p-8 bg-white w-80">
+            <button className="mb-8 text-gray-500 hover:text-gray-700" aria-label='close menu' onClick={() => setShowMenu(!showMenu)}>
               <IconClose />
             </button>
             <a href="#" className="text-2xl font-bold">
@@ -39,7 +39,7 @@ export default function Header() {
             <a href="#" className="text-2xl font-bold">
               Contact
             </a>
-          </main>
+          </div>
         </aside>
 
         <div className="flex items-center justify-center lg:items-stretch lg:justify-start">
@@ -68,7 +68,7 @@ export default function Header() {
         </div>
 
         <div className="inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
-          <button className="relative p-6 text-gray-500 hover:text-gray-800" onClick={() => setShowCart(!showCart)}>
+          <button className="relative p-6 text-gray-500 hover:text-gray-800" aria-label='open cart' onClick={() => setShowCart(!showCart)}>
             {getTotalItems() > 0 && (
               <span className="absolute inline-flex items-center justify-center w-6 h-5 p-2 text-xs font-bold text-white bg-orange-400 rounded-full right-3 top-3">{getTotalItems()}</span>
             )}

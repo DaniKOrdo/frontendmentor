@@ -41,11 +41,11 @@ export default function InfoProduct() {
 
       <footer className="flex flex-col items-center gap-4 py-10 md:flex-row">
         <div className="flex items-center justify-between w-full px-4 bg-gray-100 rounded-md md:px-0 md:justify-center h-14 md:h-full md:w-auto">
-          <button className="flex items-center justify-center w-12 h-full text-orange-400 rounded-md hover:text-orange-600" onClick={() => handleQuantity(-1)}><IconMinus /></button>
+          <button className="flex items-center justify-center w-12 h-full text-orange-400 rounded-md hover:text-orange-600" aria-label='minus quantity' onClick={() => handleQuantity(-1)}><IconMinus /></button>
           <span className="flex items-center justify-center w-12 font-bold ">{quantity}</span>
-          <button className="flex items-center justify-center w-12 h-full text-orange-400 rounded-md hover:text-orange-600" onClick={() => handleQuantity(1)}><IconPlus /></button>
+          <button className="flex items-center justify-center w-12 h-full text-orange-400 rounded-md hover:text-orange-600" aria-label='more quantity' onClick={() => handleQuantity(1)}><IconPlus /></button>
         </div>
-        <button className="flex items-center justify-center w-full gap-4 py-4 text-white bg-orange-400 rounded-xl hover:bg-orange-300 fill-white" onClick={() => addToCart(product, quantity)}>
+        <button className="flex items-center justify-center w-full gap-4 py-4 text-white bg-orange-400 rounded-xl hover:bg-orange-300 fill-white" aria-label='add to cart' onClick={() => addToCart(product, quantity)}>
           <IconCart />
           <span className='font-bold'>Add to cart</span>
         </button>
