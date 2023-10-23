@@ -48,3 +48,11 @@
   font-family: "Poppins";
   background-color: #f0f0f0;
 }
+
+.custom-label {
+  @apply block mb-2 font-bold tracking-[0.2em] text-gray-500;
+}
+
+.date-input {
+  @apply h-[4.5rem] px-6 text-4xl font-bold placeholder-gray-400 rounded-lg w-44 ring-1 ring-inset ring-gray-300 focus:ring-customPurple focus:ring-2 focus-visible:outline-none;
+}
