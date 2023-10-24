@@ -54,5 +54,9 @@
 }
 
 .date-input {
-  @apply h-[4.5rem] px-6 text-4xl font-bold placeholder-gray-400 rounded-lg w-44 ring-1 ring-inset ring-gray-300 focus:ring-customPurple focus:ring-2 focus-visible:outline-none;
+  @apply h-[4.5rem] mb-2 px-6 text-4xl font-bold placeholder-gray-400 rounded-lg w-44 ring-1 ring-inset ring-gray-300 focus:ring-customPurple hover:ring-customPurple focus:ring-2 focus-visible:outline-none;
+}
+
+.arrow-button {
+  @apply absolute right-0 flex items-center justify-center w-24 h-24 transition-all duration-300 rounded-full -bottom-12 bg-customPurple hover:bg-black active:bg-gray-600;
 }
