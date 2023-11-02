@@ -50,13 +50,17 @@
 }
 
 .custom-label {
-  @apply block mb-2 font-bold tracking-[0.2em] text-gray-500;
+  @apply block mb-2 font-bold md:text-base text-sm tracking-[0.2rem];
 }
 
 .date-input {
-  @apply h-[4.5rem] mb-2 px-6 text-4xl font-bold placeholder-gray-400 rounded-lg w-44 ring-1 ring-inset ring-gray-300 focus:ring-customPurple hover:ring-customPurple focus:ring-2 focus-visible:outline-none;
+  @apply md:h-[4.5rem] h-[3.5rem] mb-2 md:px-6 px-4 md:text-4xl text-2xl font-bold placeholder-gray-400 rounded-lg md:w-44 w-24 ring-1 ring-inset ring-gray-300 focus:ring-customPurple hover:ring-customPurple focus:ring-2 focus-visible:outline-none;
+}
+
+.date-input-error {
+  @apply md:h-[4.5rem] h-[3.5rem] mb-2 md:px-6 px-4 md:text-4xl text-2xl font-bold placeholder-gray-400 rounded-lg md:w-44 w-24 ring-1 ring-inset ring-red-500 focus:ring-red-500 hover:ring-red-500 focus:ring-2 focus-visible:outline-none;
 }
 
 .arrow-button {
-  @apply absolute right-0 flex items-center justify-center w-24 h-24 transition-all duration-300 rounded-full -bottom-12 bg-customPurple hover:bg-black active:bg-gray-600;
+  @apply absolute flex items-center justify-center w-16 h-16 transition-all duration-300 translate-x-1/2 rounded-full top-28 md:top-auto right-1/2 md:h-24 md:w-24 md:right-10 -bottom-12 bg-customPurple hover:bg-black active:bg-gray-600;
 }
