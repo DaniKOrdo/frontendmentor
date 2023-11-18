@@ -1,38 +1,20 @@
-import { useState } from 'react'
-import { IconArrow } from './utils/icons'
-import AgeDisplay from './components/AgeDisplay'
-import AgeForm from './components/AgeForm'
-
-const monthArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+import { useState } from 'react';
+import AgeDisplay from './components/AgeDisplay';
+import AgeForm from './components/AgeForm';
 
 function App() {
   const [age, setAge] = useState({ years: '--', months: '--', days: '--' });
 
   function calculateRealAge(year, month, day) {
-    const actualDate = new Date();
-    let actualYear = actualDate.getFullYear();
-    let actualMonth = actualDate.getMonth() + 1;
-    let actualDay = actualDate.getDate();
+    const currentDate = new Date();
+    const birthDate = new Date(year, month - 1, day);
+    const ageDifference = currentDate - birthDate;
 
-    const result = { years: 0, months: 0, days: 0 };
+    const ageInYears = Math.floor(ageDifference / (365.25 * 24 * 60 * 60 * 1000));
+    const ageInMonths = Math.floor((ageDifference % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
+    const ageInDays = Math.floor((ageDifference % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
 
-    if (actualDay < day) {
-      actualMonth--;
-      const actualDays = actualDay + monthArr[actualMonth];
-      result.days = actualDays - day;
-    } else {
-      result.days = actualDay - day;
-    }
-
-    if (actualMonth < month) {
-      actualYear--;
-      actualMonth += 12;
-    }
-
-    result.months = actualMonth - month;
-    result.years = actualYear - year;
-
-    setAge(result);
+    setAge({ years: ageInYears, months: ageInMonths, days: ageInDays });
   }
 
   return (
