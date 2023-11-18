@@ -101,7 +101,11 @@ function AgeForm({ calculateAge }) {
         {errorDate && <span className="italic text-red-500">Must be in the past</span>}
       </div>
 
-      <button className={`arrow-button ${isAnyError ? 'disabled cursor-not-allowed' : ''}`} disabled={isAnyError}>
+      <button
+        className={`arrow-button ${isAnyError ? 'disabled cursor-not-allowed' : ''}`}
+        disabled={isAnyError}
+        aria-label="Calculate age"
+      >
         <IconArrow className={'w-7 md:w-auto'} />
       </button>
     </form>
