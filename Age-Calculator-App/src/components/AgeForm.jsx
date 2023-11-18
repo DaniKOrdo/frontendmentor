@@ -59,13 +59,13 @@ function AgeForm({ calculateAge }) {
       setErrorDay(false);
     }
 
-    if (inputMonth < 1 || inputMonth > 12) {
+    if (inputMonth && (inputMonth < 1 || inputMonth > 12)) {
       setErrorMonth(true);
     } else {
       setErrorMonth(false);
     }
 
-    if (inputYear < 0 || inputYear > actualYear) {
+    if (inputYear && (inputYear < 1900 || inputYear > actualYear)) {
       setErrorYear(true);
     } else {
       setErrorYear(false);
@@ -83,22 +83,22 @@ function AgeForm({ calculateAge }) {
   return (
     <form className="flex md:gap-8 gap-4 border-b-[1px] md:h-40 h-36 relative" onSubmit={handleSubmit} onChange={handleValidations}>
       <div className="flex flex-col">
-        <label htmlFor="day" className={`custom-label ${errorDay ? 'text-red-500' : 'text-gray-500'}`} >DAY</label>
-        <input type="number" name="day" className={`${errorDay ? "date-input-error" : "date-input"}`} placeholder="DD" required />
+        <label htmlFor="day" className={`custom-label ${errorDay || errorDate ? 'text-red-500' : 'text-gray-500'}`} >DAY</label>
+        <input type="number" name="day" className={`${errorDay || errorDate ? "date-input-error" : "date-input"}`} placeholder="DD" required />
         {errorDay && <span className="italic text-red-500">Must be a valid day</span>}
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="month" className={`custom-label ${errorMonth ? 'text-red-500' : 'text-gray-500'}`} >MONTH</label>
-        <input type="number" name="month" className={`${errorMonth ? "date-input-error" : "date-input"}`} placeholder="MM" required />
+        <label htmlFor="month" className={`custom-label ${errorMonth || errorDate ? 'text-red-500' : 'text-gray-500'}`} >MONTH</label>
+        <input type="number" name="month" className={`${errorMonth || errorDate ? "date-input-error" : "date-input"}`} placeholder="MM" required />
         {errorMonth && <span className="italic text-red-500">Must be a valid month</span>}
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="year" className={`custom-label ${errorYear ? 'text-red-500' : 'text-gray-500'}`} >YEAR</label>
-        <input type="number" name="year" className={`${errorYear ? "date-input-error" : "date-input"}`} placeholder="YYYY" required />
-        {errorYear && <span className="italic text-red-500">Must be in the past</span>}
-        {errorDate && <span className="italic text-red-500 ">Must be a valid date</span>}
+        <label htmlFor="year" className={`custom-label ${errorYear || errorDate ? 'text-red-500' : 'text-gray-500'}`} >YEAR</label>
+        <input type="number" name="year" className={`${errorYear || errorDate ? "date-input-error" : "date-input"}`} placeholder="YYYY" required />
+        {errorYear && <span className="italic text-red-500">Must be between 1900 and {actualYear}</span>}
+        {errorDate && <span className="italic text-red-500">Must be in the past</span>}
       </div>
 
       <button className={`arrow-button ${isAnyError ? 'disabled cursor-not-allowed' : ''}`} disabled={isAnyError}>
